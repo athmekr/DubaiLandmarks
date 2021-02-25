@@ -1,1 +1,17 @@
-<p>header works!</p>
+<mat-toolbar class="tool-bar" color="primary">
+  <mat-toolbar-row>
+    <img
+    width="50"
+    alt="InstaLand Logo"
+    src="assets/img/dubai-white.png"
+  />
+    <span>InstaLand</span>
+    <span class="spacer"></span>
+    <a mat-button routerLink="/">Landmarks</a>
+    <a mat-button routerLink="/auth/login">Login</a>
+    <a mat-raised-button routerLink="/auth/signup" color="Warn">Signup</a>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
