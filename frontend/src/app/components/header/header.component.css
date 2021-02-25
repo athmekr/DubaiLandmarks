@@ -3,29 +3,30 @@
 }
 
 .toolbar {
-  /*  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px; */
   display: flex;
   align-items: center;
   color: white;
-  font-weight: 600;
-  padding: 8px 16px;
+  padding: 8px 8px;
 }
 
 .toolbar img {
-  margin: 0 16px;
+  margin: 0 8px;
   height: auto;
 }
 
-.toolbar span {
+.logo {
   margin: 0 16px;
-  font-size: 1.5vw;
+  /*  font-size: 1.5vw;*/
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
 }
 
-.toolbar a {
-  margin: 0 16px;
-  font-size: 0.8vw;
+.logo a:hover,
+a:active {
+  color: lightgray;
+}
+
+.logo a:link {
+  color: white;
 }
