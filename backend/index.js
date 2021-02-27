@@ -25,14 +25,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
-
 // Serve the Parse API on the /parse URL prefix
 app.use('/parse', new ParseServer(parseServer));
 
 // make the Parse Dashboard available at /dashboard
 app.use('/dashboard', new ParseDashboard(parseDashboard));
+
+// Serve static assets from the /public folder
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
