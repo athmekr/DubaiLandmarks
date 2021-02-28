@@ -1,0 +1,11 @@
+.login-card {
+  margin: auto;
+  max-width: 400px;
+  text-align: center;
+  padding: 50px 50px;
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+}
