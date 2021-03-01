@@ -1,1 +1,15 @@
-<p>home works!</p>
+<mat-card class="landmark-card" *ngFor="let landmark of landmarks">
+  <mat-card-header>
+    <mat-card-title>
+      <a class="text-dark" [routerLink]="['/landmarks', landmark.objectId]">{{ landmark.title }}</a>
+    </mat-card-title>
+  </mat-card-header>
+  <img class="landmark-thumb" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p class="card-text mb-auto">{{ landmark.short_info }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a [routerLink]="['/landmarks', landmark.objectId]">Read More</a>
+  </mat-card-actions>
+</mat-card>
+
