@@ -3,8 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PARSE_SERVER: {
+      SERVER_URL: 'http://localhost:5000/parse',
+      APP_ID: 'Instaland'
+  },
+  LANDMARKS_API_URL: 'http://localhost:5000/api/landmarks'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
