@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandmarksComponent } from './components/landmarks/landmarks.component';
 import { LoginComponent } from './components/login/login.component';
+import { LandmarkDetailedComponent } from './components/landmark-detailed/landmark-detailed.component';
 
 //Angular Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     HeaderComponent,
     LandmarksComponent,
-    LoginComponent
+    LoginComponent,
+    LandmarkDetailedComponent
   ],
   imports: [
     BrowserModule,
