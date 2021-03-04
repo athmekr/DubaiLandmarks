@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   PARSE_SERVER: {
       SERVER_URL: 'http://localhost:5000/parse',
-      APP_ID: 'Instaland'
+      APP_ID: 'NqqPKd9Mzzdk0Es6P7NdzXOXNb4tsqdq6Q8p0cZi'
   },
   LANDMARKS_API_URL: 'http://localhost:5000/api/landmarks'
 };
