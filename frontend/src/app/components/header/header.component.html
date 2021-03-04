@@ -8,19 +8,10 @@
     />
     <a class ="logo" style="text-decoration:none" href="/">InstaLand</a>
     <span class="spacer"></span>
+    <!-- <a *ngIf="(userIsLogged | async)">welcome,</a>  -->
     <a mat-stroked-button href="/">Landmarks</a>
-    <a *ngIf="!(userIsLoggedIn | async)" mat-raised-button color="basic" routerLink="/login">Login</a>
-    <a *ngIf="(userIsLoggedIn | async)" mat-raised-button color="basic" (click)="onLogout()" >Logout</a>
-    <!-- <a mat-raised-button routerLink="/auth/signup" color="Warn">Signup</a> -->
-  <!--   <ul>
-      <li class="header-buttons">
-        <button *ngIf="!(userIsLoggedIn)" mat-button routerLink="/login">Login</button>
-        <button *ngIf="(userIsLoggedIn)" mat-button (click)="onLogout()" color="accent" >Logout</button>
-      </li>
-    </ul> -->
-<!--     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
+    <a *ngIf="!(userIsLogged | async)" mat-raised-button color="basic" routerLink="/login">Login</a>
+    <a *ngIf="(userIsLogged | async)" mat-raised-button color="basic" (click)="onLogout()" >Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 

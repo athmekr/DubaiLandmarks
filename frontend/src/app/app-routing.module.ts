@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LandmarksComponent } from './components/landmarks/landmarks.component';
+import { LandmarkDetailedComponent } from './components/landmark-detailed/landmark-detailed.component';
 import { LoginComponent } from './components/login/login.component';
 //import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'landmarks', component: LandmarksComponent, pathMatch: 'full' }, //maybe just redirect to ''
-  { path: 'landmarks/:landid', component: LandmarksComponent, pathMatch: 'full' },
+  { path: 'landmarks/:id', component: LandmarkDetailedComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
 ];
 

@@ -1,12 +1,14 @@
 <mat-card class="landmark-card" *ngFor="let landmark of landmarks">
   <mat-card-header>
     <mat-card-title>
-      <a class="text-dark" [routerLink]="['/landmarks', landmark.objectId]">{{ landmark.title }}</a>
+      <a [routerLink]="['/landmarks', landmark.objectId]">{{ landmark.title }}</a>
     </mat-card-title>
   </mat-card-header>
-  <img class="landmark-thumb" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img *ngIf="!(landmark.photo_thumb)" class="landmark-thumb" mat-card-image src="../../../assets/img/default-placeholder.jpg" alt="Photo of landmark">
+<!--   <img *ngIf="!(landmark.photo_thumb)" class="landmark-thumb" mat-card-image src="../../../assets/img/Burj_Khalifa.jpg" alt="Photo of landmark">-->
+  <img *ngIf="landmark.photo_thumb" class="landmark-thumb" mat-card-image src={{landmark.photo_thumb.url}} alt="Photo of landmark">
   <mat-card-content>
-    <p class="card-text mb-auto">{{ landmark.short_info }}</p>
+    <p class="card-p">{{ landmark.shortInfo }}</p>
   </mat-card-content>
   <mat-card-actions>
     <a [routerLink]="['/landmarks', landmark.objectId]">Read More</a>
