@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LandmarkService } from '../../services/landmark.service';
 import { Landmark } from '../../models/landmark.model';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 //import mapboxgl from 'mapbox-gl';
 
 @Component({
@@ -13,12 +15,14 @@ export class LandmarkDetailedComponent implements OnInit {
 
   public landmark: Landmark;
   public contenteditable: boolean;
+  userIsLogged: Observable<boolean>;
 
-  constructor( private landmarkService: LandmarkService, private route: ActivatedRoute ) { }
+  constructor( private landmarkService: LandmarkService, private authService: AuthService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     this.getLandmarkById();
     this.contenteditable = false;
+    this.userIsLogged = this.authService.userLogged;
   }
 
   getLandmarkById(){

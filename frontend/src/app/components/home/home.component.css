@@ -1,9 +1,12 @@
 .landmark-card {
   margin: 50px auto;
-  margin-left: auto;
-  max-width: 400px;
+  /*   margin-left: auto;
+ */
+  max-width: 800px;
   text-align: center;
   padding: 50px 50px;
+  background-color: whitesmoke;
+  color: black;
 }
 
 .card-p {

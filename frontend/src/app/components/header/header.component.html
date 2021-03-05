@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar" color="primary">
+<mat-toolbar class="toolbar" color="basic">
   <mat-toolbar-row>
     <img
       href="/"
@@ -9,9 +9,9 @@
     <a class ="logo" style="text-decoration:none" href="/">InstaLand</a>
     <span class="spacer"></span>
     <!-- <a *ngIf="(userIsLogged | async)">welcome,</a>  -->
-    <a mat-stroked-button routerLink="/">Landmarks</a>
-    <a *ngIf="!(userIsLogged | async)" mat-raised-button color="basic" routerLink="/login">Login</a>
-    <a *ngIf="(userIsLogged | async)" mat-raised-button color="basic" (click)="onLogout()" >Logout</a>
+    <a mat-stroked-button color="primary" routerLink="/">Landmarks</a>
+    <a *ngIf="!(userIsLogged | async)" mat-raised-button color="primary" routerLink="/login">Login</a>
+    <a *ngIf="(userIsLogged | async)" mat-raised-button color="primary" (click)="onLogout()" >Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 
