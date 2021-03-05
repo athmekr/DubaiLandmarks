@@ -3,14 +3,23 @@ const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
 //const path = require('path');
 const cors = require("cors");
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
+
+const multer = require('multer');
+const forms = multer();
 
 // dotenv configuration
 require('dotenv').config()
 
+/* // Use body-parser
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json()) */
+
 // Parse Dashboard and Server configs
-const parseDashboard = require('./config/parse-dashboard');
 const parseServer = require('./config/parse-server');
+const parseDashboard = require('./config/parse-dashboard');
 
 // Landmark api route
 const landmarkRoute = require('./routes/landmarks');
@@ -19,12 +28,15 @@ const app = express();
 
 // Use cors
 app.use(cors());
-
+// app.use(bodyParser.urlencoded({ extended: false }))
+app.use(forms.array());
+// app.use(bodyParser.json()); // Enable bodyParser
+/*
 // Use body-parser
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json()) */
 
 // Serve the Parse API on the /parse URL prefix
 app.use('/parse', new ParseServer(parseServer));
