@@ -1,0 +1,64 @@
+.landmark-card {
+  margin: 50px auto;
+  margin-left: 50px;
+  max-width: 400px;
+  text-align: center;
+  padding: 50px 50px;
+}
+
+.card-p {
+  text-align: justify;
+}
+mat-card img {
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 60%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.clicked {
+  border: 1px solid #b9b9b9;
+}
+
+*[contenteditable="false"] {
+  padding: 5px;
+}
+*[contenteditable="true"] {
+  border: 2px dashed #f32727;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.edit-button {
+  float: right;
+}
+
+.save-button {
+  float: right;
+}
+
+.cancel-button {
+  float: right;
+}
+
+a {
+  margin-right: 20px;
+}
+.logo a:hover,
+a:active {
+  color: lightgray;
+}
+
+.logo a:link {
+  color: white;
+}
+/* .sc-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 100px;
+} */

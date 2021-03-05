@@ -1,8 +1,7 @@
 export class Landmark {
   objectId: string;
-  order: Number; //not sure if needed
   title: string;
-  short_info: string;
+  shortInfo: string;
   description: string;
   location: {
     lat: Number
@@ -15,4 +14,5 @@ export class Landmark {
   photo_thumb: {
       url: string
   };
+  //image_file: string;
 }
