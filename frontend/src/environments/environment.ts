@@ -8,7 +8,8 @@ export const environment = {
       SERVER_URL: 'http://localhost:5000/parse',
       APP_ID: 'NqqPKd9Mzzdk0Es6P7NdzXOXNb4tsqdq6Q8p0cZi'
   },
-  LANDMARKS_API_URL: 'http://localhost:5000/api/landmarks'
+  LANDMARKS_API_URL: 'http://localhost:5000/api/landmarks',
+  AGM_KEY: 'AIzaSyBtFJ0kxGqHS6UIdXLmcdSdj5AV5NBNNec'
 };
 
 

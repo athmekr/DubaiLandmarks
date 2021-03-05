@@ -2,7 +2,8 @@ const express = require('express');
 const LandmarksController = require('../controllers/landmarks');
 const router = express.Router();
 //const checkAuth = require('../middleware/check-auth');
-const extractFile = require('../middleware/file');
+//const extractFile = require('../middleware/file');
+
 
 // Get all landmarks
 router.get('/', LandmarksController.getLandmarks);
@@ -11,6 +12,6 @@ router.get('/', LandmarksController.getLandmarks);
 router.get('/:id', LandmarksController.getLandmark);
 
 // Update landmark
-router.put('/:id', extractFile, LandmarksController.updateLandmark);
+router.put('/:id', LandmarksController.updateLandmark);
 
 module.exports = router;
