@@ -34,12 +34,11 @@ export class LandmarkService {
   // Update landmark
   updateLandmark(landmark: Landmark): Observable<Landmark> {
     const formData = new FormData();
-    console.log('update111');
-    formData.append('title', landmark.title);
-    console.log(landmark.title);
 
+    formData.append('title', landmark.title);
+    formData.append('shortInfo', landmark.shortInfo);
     formData.append('description', landmark.description);
-    //formData.append('url', landmark.url);
+    formData.append('url', landmark.url);
     //formData.append('photo', landmark.image_file);
 
     const url = `${this.landmark_url}/${landmark.objectId}`;

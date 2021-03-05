@@ -47,7 +47,6 @@ async function getUserIDFromToken(sessionToken) {
 }
 
 async function getObjectACL(landmarkObject, sessionToken) {
-  console.log('mpike getObject');
   const userID = await getUserIDFromToken(sessionToken)
     .then((user) => user['data']['objectId'])
     //.catch((err) => undefined);
@@ -76,27 +75,19 @@ async function getObjectACL(landmarkObject, sessionToken) {
   }
 }
 
-
 exports.updateLandmark =  async (req, res) => {
   try {
     const sessionToken = req.headers['x-parse-session-token'];
     if (sessionToken !== '') {
-      console.log('bbb1');
       const landmarks = Parse.Object.extend('DubaiLandmarks');
       const query = new Parse.Query(landmarks);
-      const landmark = await query.get(req.params.id, sessionToken);
-      console.log(query);
-      console.log(landmark);
-      console.log(landmark.title);
-      console.log(sessionToken);
+      const landmark = await query.get(req.params.id, { sessionToken: sessionToken });
 
       const hasWriteAccess = await getObjectACL(landmark, sessionToken);
-      console.log(hasWriteAccess);
+
       if (hasWriteAccess) {
-        console.log('bbb2');
-        //console.log(req.body.landmark.title);
+
         landmark.set('title', req.body.title);
-        //console.log(title);
         landmark.set('description', req.body.description);
         landmark.set('shortInfo', req.body.shortInfo);
         landmark.set('url', req.body.url);
@@ -105,7 +96,6 @@ exports.updateLandmark =  async (req, res) => {
 
         return res.status(200).json(landmark);
       } else {
-        console.log('bbb3');
         return res.status(500).json({ ok: false, message: 'Write access denied!' });
       }
     } else {
