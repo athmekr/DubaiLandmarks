@@ -14,5 +14,5 @@ export class Landmark {
   photo_thumb: {
       url: string
   };
-  //image_file: string;
+  image_file: string;
 }

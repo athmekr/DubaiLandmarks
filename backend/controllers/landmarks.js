@@ -3,6 +3,9 @@
 const Parse = require('parse/node');
 //const crypto = require('crypto');
 const axios = require('axios');
+const imageProcessing = require('../misc/image-processing');
+
+
 //const { title } = require('process');
 
 exports.getLandmarks =  async (req, res) => {
@@ -11,8 +14,9 @@ exports.getLandmarks =  async (req, res) => {
     const query = new Parse.Query(landmarks);
 
     // Get selected attributes with ascending order, based on the `order` field in the class
-    query.select("_id", "title", "shortInfo", "location", "photo", "photo_thumb");
+    query.select("_id", "title", "shortInfo", "latitude", "longitude", "photo", "photo_thumb");
     query.ascending("order");
+
     const land = await query.find();
     return res.status(200).json(land);
   }
@@ -26,6 +30,7 @@ exports.getLandmark = async (req, res) => {
     const landmarks = Parse.Object.extend("DubaiLandmarks");
     const query = new Parse.Query(landmarks);
     const land = await query.get(req.params.id);
+
     return res.status(200).json(land);
   }
   catch (err) {
@@ -77,6 +82,7 @@ async function getObjectACL(landmarkObject, sessionToken) {
 
 exports.updateLandmark =  async (req, res) => {
   try {
+    console.log(req.body);
     const sessionToken = req.headers['x-parse-session-token'];
     if (sessionToken !== '') {
       const landmarks = Parse.Object.extend('DubaiLandmarks');
@@ -84,13 +90,24 @@ exports.updateLandmark =  async (req, res) => {
       const landmark = await query.get(req.params.id, { sessionToken: sessionToken });
 
       const hasWriteAccess = await getObjectACL(landmark, sessionToken);
+      console.log("bbbbbbbbbb11111111");
 
       if (hasWriteAccess) {
+        console.log("bbbbbbbbbb22222222");
+        console.log(req.file);
+        console.log(req.body);
+        if (req.file) {
+          console.log("bbbbbbbbbb3333333");
+          const photo = await imageProcessing(req.file);
+          landmark.set('photo', photo.original);
+          landmark.set('photo_thumb', photo.thumbnail);
+        }
 
         landmark.set('title', req.body.title);
         landmark.set('description', req.body.description);
         landmark.set('shortInfo', req.body.shortInfo);
         landmark.set('url', req.body.url);
+        //landmark.set('location', req.body.location);
 
         await landmark.save(null, { sessionToken: sessionToken });
 

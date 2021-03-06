@@ -39,7 +39,7 @@ export class LandmarkService {
     formData.append('shortInfo', landmark.shortInfo);
     formData.append('description', landmark.description);
     formData.append('url', landmark.url);
-    //formData.append('photo', landmark.image_file);
+    formData.append('photo', landmark.image_file);
 
     const url = `${this.landmark_url}/${landmark.objectId}`;
     return this.httpClient.put<Landmark>(url, formData, {headers: this.generateHeaderToken()});
