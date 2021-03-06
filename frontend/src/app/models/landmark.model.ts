@@ -4,8 +4,8 @@ export class Landmark {
   shortInfo: string;
   description: string;
   location: {
-    lat: Number
-    long: Number;
+    latitude: Number,
+    longitude: Number
   };
   url: string;
   photo: {
@@ -14,5 +14,7 @@ export class Landmark {
   photo_thumb: {
       url: string
   };
-  image_file: string;
+  latitude: Number;
+  longitude: Number;
+  image_file: string; //to save photo during multer proccess
 }

@@ -1,7 +1,4 @@
-//const express = require('express');
-//const sharp = require('sharp');
 const Parse = require('parse/node');
-//const crypto = require('crypto');
 const axios = require('axios');
 const imageProcessing = require('../misc/image-processing');
 
@@ -82,22 +79,16 @@ async function getObjectACL(landmarkObject, sessionToken) {
 
 exports.updateLandmark =  async (req, res) => {
   try {
-    console.log(req.body);
     const sessionToken = req.headers['x-parse-session-token'];
     if (sessionToken !== '') {
       const landmarks = Parse.Object.extend('DubaiLandmarks');
       const query = new Parse.Query(landmarks);
       const landmark = await query.get(req.params.id, { sessionToken: sessionToken });
-
       const hasWriteAccess = await getObjectACL(landmark, sessionToken);
-      console.log("bbbbbbbbbb11111111");
 
       if (hasWriteAccess) {
-        console.log("bbbbbbbbbb22222222");
-        console.log(req.file);
-        console.log(req.body);
+
         if (req.file) {
-          console.log("bbbbbbbbbb3333333");
           const photo = await imageProcessing(req.file);
           landmark.set('photo', photo.original);
           landmark.set('photo_thumb', photo.thumbnail);
@@ -107,16 +98,15 @@ exports.updateLandmark =  async (req, res) => {
         landmark.set('description', req.body.description);
         landmark.set('shortInfo', req.body.shortInfo);
         landmark.set('url', req.body.url);
-        //landmark.set('location', req.body.location);
 
         await landmark.save(null, { sessionToken: sessionToken });
 
         return res.status(200).json(landmark);
       } else {
-        return res.status(500).json({ ok: false, message: 'Write access denied!' });
+        return res.status(500).json({ ok: false, message: 'User is not authenticated' });
       }
     } else {
-      return res.status(500).json({ ok: false, message: 'Empty session token' });
+      return res.status(500).json({ ok: false, message: 'Token is missing' });
     }
   } catch (error) {
     return res.status(500).json({ ok: false, message: error.message });
