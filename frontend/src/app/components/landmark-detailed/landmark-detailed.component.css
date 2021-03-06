@@ -8,11 +8,6 @@
   color: black;
 }
 
-/* .space {
-  display: flex;
-  justify-content: space-between;
-} */
-
 agm-map {
   height: 500px;
 }
@@ -21,25 +16,27 @@ agm-map {
   text-align: justify;
 }
 
-mat-card img {
-  object-fit: cover; /*this makes the image in src fit to the size specified below*/
-  width: 60%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-  height: 60%;
-  display: flex;
+/* mat-card img { */
+/* object-fit: cover;  */ /*this makes the image in src fit to the size specified below*/
+/*   width: 60%;
+  height: 60%; */
+/*   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px auto;
-}
+  margin: 50px auto; */
+/* } */
 
 .clicked {
   border: 1px solid #b9b9b9;
 }
 
-/* .image-upload {
-  border: 2px solid #f32727;
-  border-radius: 10px;
-  padding: 5px;
-} */
+mat-spinner {
+  margin: auto;
+}
+
+.edit-sub {
+  color: #f32727;
+}
 
 *[contenteditable="false"] {
   padding: 5px;
@@ -47,19 +44,7 @@ mat-card img {
 *[contenteditable="true"] {
   border: 2px dashed #f32727;
   border-radius: 10px;
-  padding: 5px;
-}
-
-.edit-button {
-  float: right;
-}
-
-.save-button {
-  float: right;
-}
-
-.cancel-button {
-  float: right;
+  padding: 2.2px;
 }
 
 a {
@@ -73,10 +58,3 @@ a:active {
 .logo a:link {
   color: white;
 }
-/* .sc-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px auto;
-  max-width: 100px;
-} */

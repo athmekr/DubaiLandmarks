@@ -4,8 +4,7 @@ import { Landmark } from '../../models/landmark.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
-//import mapboxgl from 'mapbox-gl';
+
 @Component({
   selector: 'app-landmark-detailed',
   templateUrl: './landmark-detailed.component.html',
@@ -16,9 +15,8 @@ export class LandmarkDetailedComponent implements OnInit {
 
   public landmark: Landmark;
   public contenteditable: boolean;
+  public isLoading: boolean;
   userIsLogged: Observable<boolean>;
-  //public loc: number[];
-  //public lng: number;
 
   constructor( private landmarkService: LandmarkService, private authService: AuthService, private route: ActivatedRoute ) { }
 
@@ -26,33 +24,23 @@ export class LandmarkDetailedComponent implements OnInit {
     this.getLandmarkById();
     this.contenteditable = false;
     this.userIsLogged = this.authService.userLogged;
-    //this.loc = this.landmark.location;
-
+    this.isLoading = false;
   }
 
   getLandmarkById(){
     const id = this.route.snapshot.params.id;
     this.landmarkService.getLandmarkById(id).subscribe((landmark: Landmark) => {
       this.landmark = landmark;
-/*       console.log(this.landmark.title);
-      console.log(this.landmark.location);
-      console.log(this.loc); */
-
- /*      console.log(this.landmark.location.latitude);
-      console.log(this.landmark.location[0]);
-      console.log(this.landmark.location[1]); */
-      //const geo = req.object.get(this.landmark.location);
-
     });
   }
 
   onSave(): void {
     const formData = new FormData();
     this.landmarkService.updateLandmark(this.landmark).subscribe((landmark: Landmark) => {
-    this.landmark = landmark;
-    this.contenteditable = false;
-    console.log('Landmark Updated!')
-  });
+      this.landmark = landmark;
+      this.contenteditable = false;
+      console.log('Landmark Updated!')
+    });
   }
 
   onCancel(): void {
@@ -60,29 +48,20 @@ export class LandmarkDetailedComponent implements OnInit {
     this.contenteditable = false;
   }
 
- /*  toggleContenteditable(): void {
-    this.contenteditable = !this.contenteditable;
-  } */
-
   onEdit(): void {
     this.contenteditable = true;
   }
 
-  onImageUpload(event) {
+  onUpload(event) {
     this.landmark.image_file = event.target.files[0];
+    this.isLoading = true;
     this.landmarkService.updateLandmark(this.landmark).subscribe((landmark: Landmark) => {
         this.landmark = landmark;
+        this.isLoading = false;
     },(error) => {
+      this.isLoading = false;
+      alert("Image Upload Error \n\ Max file size 5mb")
       console.log("image upload error");
     });
   }
-/*     const file = event.target.files[0];
-    const formData  = new FormData();
-    formData.append('photo', file);
-    this.landmarkService.updateLandmark(this.landmark, formData).subscribe((landmark: Landmark) => {
-      this.landmark = landmark;
-  },(error) => {
-    console.log("image upload error");
-  }); */
-
 }
