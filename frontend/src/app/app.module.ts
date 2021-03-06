@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-//import { AgmCoreModule } from '@agm/core';
-//import { environment } from '../environments/environment';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
 // Components
 import { HomeComponent } from './components/home/home.component';
@@ -49,10 +49,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatDialogModule
-/*     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBtFJ0kxGqHS6UIdXLmcdSdj5AV5NBNNec'
-    }) */
+    MatDialogModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.AGM_KEY
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

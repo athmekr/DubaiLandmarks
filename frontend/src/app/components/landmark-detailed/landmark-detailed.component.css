@@ -13,6 +13,10 @@
   justify-content: space-between;
 } */
 
+agm-map {
+  height: 500px;
+}
+
 .card-p {
   text-align: justify;
 }
@@ -30,6 +34,12 @@ mat-card img {
 .clicked {
   border: 1px solid #b9b9b9;
 }
+
+/* .image-upload {
+  border: 2px solid #f32727;
+  border-radius: 10px;
+  padding: 5px;
+} */
 
 *[contenteditable="false"] {
   padding: 5px;

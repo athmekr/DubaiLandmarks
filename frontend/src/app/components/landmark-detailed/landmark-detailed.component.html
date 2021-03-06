@@ -11,22 +11,34 @@
           <a class="edit-button"  mat-raised-button color="basic" (click)="onEdit()">Edit</a>
         </mat-card-content>
 
-      <mat-card-content *ngIf="(contenteditable)">
+<!--       <mat-card-content *ngIf="(contenteditable)">
         <a class="save-button"  mat-raised-button color="basic" (click)="onSaveLandmark()">Save</a>
       </mat-card-content>
 
       <mat-card-content *ngIf="(contenteditable)">
         <a  class="cancel-button" mat-raised-button color="basic" (click)="onCancel()">Cancel</a>
-      </mat-card-content>
+      </mat-card-content> -->
     </mat-card-header>
   </mat-card-content>
 
+  <mat-card-content *ngIf="(contenteditable)">
+    <a class="save-button"  mat-raised-button color="basic" (click)="onSave()">Save</a>
+    <a  class="cancel-button" mat-raised-button color="basic" (click)="onCancel()">Cancel</a>
+  </mat-card-content>
 <!--     <button *ngIf="(contenteditable) && (authenticated)" class="save-button" (click)="saveChanges()">Save</button>
     <button *ngIf="(contenteditable) && (authenticated)" class="cancel-button" (click)="discardChanges()">Cancel</button> -->
 
   <mat-card-content>
     <img *ngIf="!(landmark.photo)" class="landmark-photo" mat-card-image src="../../../assets/img/default-placeholder.jpg" alt="Photo of landmark">
     <img *ngIf="(landmark.photo)" class="landmark-photo" mat-card-image src={{landmark.photo.url }} alt="Photo of landmark">
+  </mat-card-content>
+
+  <!-- <button mat-stroked-button type="button" (click)='filepicker.click()'>Pick Image</button>
+  <input type='file' #filepicker (change)="onImagePicked($event)"> -->
+
+  <mat-card-content class="image-upload">
+    <button  mat-raised-button type="button" (click)="fileInput.click()">Upload Image</button>
+    <input #fileInput hidden type="file" (change)="onImageUpload($event)">
   </mat-card-content>
 
   <mat-card-content>
@@ -36,11 +48,9 @@
   <mat-card-content>
     <p [attr.contenteditable]="contenteditable" class="card-p" (input)="landmark.description = $event.target.innerText">{{ landmark.description }}</p>
   </mat-card-content>
-
-
-<!--   <agm-map [latitude]="55" [longitude]="35">
-    <agm-marker [latitude]="55" [longitude]="35"></agm-marker>
-  </agm-map> -->
+  <!-- <agm-map [latitude]="landmark.latitude" [longitude]="landmark.longitude"> -->
+    <!-- <agm-marker [latitude]="landmark.location" [longitude]="landmark.location"></agm-marker> -->
+  <!-- </agm-map> -->
 
 </mat-card>
 
