@@ -1,9 +1,10 @@
 .landmark-card {
   margin: 50px auto;
-  max-width: 550px;
-  max-height: 550px;
+  /* max-width: 450px; */
+  /*max-height: 550px; */
+  /* min-height: 450px; */
   text-align: center;
-  padding: 50px 50px;
+  padding: 30px 30px;
   background-color: whitesmoke;
   color: black;
 }
@@ -24,4 +25,14 @@ a {
 
 .a-link {
   color: rgb(40, 3, 99);
+}
+
+h2 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h4 {
+  font-family: sans-serif;
+  text-align: center;
 }

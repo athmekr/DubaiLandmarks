@@ -14,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class LandmarkDetailedComponent implements OnInit {
 
   public landmark: Landmark;
-  public contenteditable: boolean;
+  public editTable: boolean;
   public isLoading: boolean;
   userIsLogged: Observable<boolean>;
 
@@ -22,7 +22,7 @@ export class LandmarkDetailedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLandmarkById();
-    this.contenteditable = false;
+    this.editTable = false;
     this.userIsLogged = this.authService.userLogged;
     this.isLoading = false;
   }
@@ -38,18 +38,18 @@ export class LandmarkDetailedComponent implements OnInit {
     const formData = new FormData();
     this.landmarkService.updateLandmark(this.landmark).subscribe((landmark: Landmark) => {
       this.landmark = landmark;
-      this.contenteditable = false;
+      this.editTable = false;
       console.log('Landmark Updated!')
     });
   }
 
   onCancel(): void {
     this.getLandmarkById();
-    this.contenteditable = false;
+    this.editTable = false;
   }
 
   onEdit(): void {
-    this.contenteditable = true;
+    this.editTable = true;
   }
 
   onUpload(event) {

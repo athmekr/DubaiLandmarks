@@ -1,24 +1,24 @@
 <mat-card class="landmark-card" *ngIf="landmark">
 
-  <mat-card-content class="mat- edit-button" *ngIf="!(contenteditable) && (userIsLogged | async)">
+  <mat-card-content class="mat- edit-button" *ngIf="!(editTable) && (userIsLogged | async)">
     <a class="edit-button"  mat-raised-button color="basic" (click)="onEdit()">Edit</a>
   </mat-card-content>
 
-  <mat-card-content *ngIf="(contenteditable)">
+  <mat-card-content *ngIf="(editTable)">
     <a class="save-button"  mat-raised-button color="basic" (click)="onSave()">Save</a>
     <a  class="cancel-button" mat-raised-button color="basic" (click)="onCancel()">Cancel</a>
   </mat-card-content>
 
-  <mat-card-title>
-    <a [attr.contenteditable]="contenteditable" (input)="landmark.title = $event.target.innerText">{{ landmark.title }}</a>
+  <mat-card-title [attr.contenteditable]="editTable" (input)="landmark.title = $event.target.innerText">
+    <a (input)="landmark.title = $event.target.innerText">{{landmark.title}}</a>
   </mat-card-title>
 
-  <mat-card-subtitle *ngIf="(contenteditable)">
+  <mat-card-subtitle *ngIf="(editTable)">
     <a class="edit-sub">Click inside the borders to edit each element!</a>
   </mat-card-subtitle>
 
   <mat-card-content>
-    <p class="card-p" [attr.contenteditable]="contenteditable" (input)="landmark.description = $event.target.innerText">{{ landmark.shortInfo }}</p>
+    <p class="card-p" [attr.contenteditable]="editTable" (input)="landmark.description = $event.target.innerText">{{landmark.shortInfo}}</p>
   </mat-card-content>
 
   <mat-card-content>
@@ -26,7 +26,7 @@
     <img *ngIf="(landmark.photo)" class="landmark-photo" mat-card-image src={{landmark.photo.url}} alt="Photo of landmark">
   </mat-card-content>
 
-  <mat-card-content class="image-upload" *ngIf="(contenteditable)">
+  <mat-card-content class="image-upload" *ngIf="(editTable)">
     <button  mat-raised-button type="button" (click)="fileInput.click()">Upload Image</button>
     <input #fileInput hidden type="file" (change)="onUpload($event)">
   </mat-card-content>
@@ -34,12 +34,12 @@
   <mat-spinner *ngIf="isLoading"></mat-spinner>
 
   <mat-card-content>
-    <!-- <p [attr.contenteditable]="contenteditable" (input)="landmark.url = $event.target.innerText">{{ landmark.url }}</p> -->
+    <!-- <p [attr.contenteditable]="editTable" (input)="landmark.url = $event.target.innerText">{{ landmark.url }}</p> -->
     <p> Official page: <a class="a-link" href={{landmark.url}} target="_blank">{{landmark.url}}</a></p>
   </mat-card-content>
 
   <mat-card-content>
-      <p [attr.contenteditable]="contenteditable" class="card-p" (input)="landmark.description = $event.target.innerText">{{ landmark.description }}</p>
+      <p [attr.contenteditable]="editTable" class="card-p" (input)="landmark.description = $event.target.innerText">{{landmark.description}}</p>
   </mat-card-content>
 
   <agm-map [latitude]="landmark.location.longitude" [longitude]="landmark.location.latitude">
