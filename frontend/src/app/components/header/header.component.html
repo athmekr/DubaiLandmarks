@@ -1,33 +1,29 @@
-<mat-toolbar class="toolbar" color="basic">
-  <mat-toolbar-row>
+<mat-toolbar color="basic">
+  <div>
     <img
-      href="/"
-      width="50"
-      alt="InstaLand Logo"
-      src="assets/img/dubai-white.png"
+    href="/"
+    width="50"
+    alt="InstaLand Logo"
+    src="assets/img/dubai-white.png"
     />
-    <a class ="logo" style="text-decoration:none" href="/">InstaLand</a>
-    <span class="spacer"></span>
-    <!-- <a *ngIf="(userIsLogged | async)">welcome,</a>  -->
-    <a mat-stroked-button color="primary" routerLink="/">Landmarks</a>
-    <a *ngIf="!(userIsLogged | async)" mat-raised-button color="primary" routerLink="/login">Login</a>
-    <a *ngIf="(userIsLogged | async)" mat-raised-button color="primary" (click)="onLogout()" >Logout</a>
-  </mat-toolbar-row>
+  </div>
+  <div>
+    <a routerLink="/">InstaLand</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a mat-stroked-button color="primary" routerLink="/">Landmarks</a>
+      </li>
+      <li>
+        <a *ngIf="!(userIsLogged | async)" mat-raised-button color="primary" routerLink="/login">Login</a>
+        <a *ngIf="(userIsLogged | async)" mat-raised-button color="primary" (click)="onLogout()" >Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div fxFlex fxLayoutAlign="end" fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
-
-
-<!-- <p>
-  <mat-toolbar>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-   <mat-icon>share</mat-icon>
- </button>
-</mat-toolbar>
-</p> -->

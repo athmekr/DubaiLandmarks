@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy, EventEmitter } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,6 +8,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @Output() public sidenavToggle = new EventEmitter();
 
   userIsLogged: Observable<boolean>;
   private authListenerSubs: Subscription;
@@ -25,6 +26,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+  }
+
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
   }
 
 }

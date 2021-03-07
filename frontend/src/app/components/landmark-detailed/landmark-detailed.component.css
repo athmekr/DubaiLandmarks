@@ -44,6 +44,7 @@ mat-spinner {
 }
 
 a {
+  text-decoration: none;
   margin-right: 20px;
 }
 .logo a:hover,
@@ -53,4 +54,8 @@ a:active {
 
 .logo a:link {
   color: white;
+}
+
+.a-link {
+  color: rgb(40, 3, 99);
 }

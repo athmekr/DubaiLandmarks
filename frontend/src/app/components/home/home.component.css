@@ -17,3 +17,11 @@ mat-card img {
   max-height: 250px;
   max-width: 250px;
 }
+
+a {
+  text-decoration: none;
+}
+
+.a-link {
+  color: rgb(40, 3, 99);
+}

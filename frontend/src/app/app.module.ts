@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 // Components
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,6 +26,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     LandmarksComponent,
     LoginComponent,
     LandmarkDetailedComponent,
-    DialogComponent
+    DialogComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatSidenavModule,
     MatDialogModule,
+    MatListModule,
+    FlexLayoutModule,
     AgmCoreModule.forRoot({
       apiKey: environment.AGM_KEY
     })
