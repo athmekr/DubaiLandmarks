@@ -16,15 +16,11 @@ agm-map {
   text-align: justify;
 }
 
-/* mat-card img { */
-/* object-fit: cover;  */ /*this makes the image in src fit to the size specified below*/
-/*   width: 60%;
-  height: 60%; */
-/*   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px auto; */
-/* } */
+mat-card img {
+  object-fit: contain;
+  max-height: 750px;
+  max-width: 1000px;
+}
 
 .clicked {
   border: 1px solid #b9b9b9;

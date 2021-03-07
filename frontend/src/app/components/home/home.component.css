@@ -1,8 +1,7 @@
 .landmark-card {
   margin: 50px auto;
-  /*   margin-left: auto;
- */
-  max-width: 800px;
+  max-width: 550px;
+  max-height: 550px;
   text-align: center;
   padding: 50px 50px;
   background-color: whitesmoke;
@@ -12,8 +11,9 @@
 .card-p {
   text-align: justify;
 }
+
 mat-card img {
-  object-fit: cover; /*this makes the image in src fit to the size specified below*/
-  width: 60%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-  height: 60%;
+  object-fit: contain;
+  max-height: 250px;
+  max-width: 250px;
 }

@@ -4,14 +4,25 @@
       <a>{{ landmark.title }}</a>
     </mat-card-title>
   </mat-card-header>
+
   <img *ngIf="!(landmark.photo_thumb)" class="landmark-thumb" mat-card-image src="../../../assets/img/default-placeholder.jpg" alt="Photo of landmark">
-<!--   <img *ngIf="!(landmark.photo_thumb)" class="landmark-thumb" mat-card-image src="../../../assets/img/Burj_Khalifa.jpg" alt="Photo of landmark">-->
-  <img *ngIf="landmark.photo_thumb" class="landmark-thumb" mat-card-image src={{landmark.photo_thumb.url}} alt="Photo of landmark">
+  <img *ngIf="landmark.photo_thumb"
+    class="landmark-thumb"
+    mat-card-image src={{landmark.photo_thumb.url}}
+    alt="Photo of landmark"
+    (click)="onDialog(landmark.photo.url)"
+  >
+
   <mat-card-content>
     <p class="card-p">{{ landmark.shortInfo }}</p>
   </mat-card-content>
+
   <mat-card-actions>
     <a [routerLink]="['/landmarks', landmark.objectId]">Read More</a>
   </mat-card-actions>
+
+<!--   <h1 mat-dialog-title>{{ landmark.title }}</h1>
+  <div mat-dialog-content></div> -->
+
 </mat-card>
 
