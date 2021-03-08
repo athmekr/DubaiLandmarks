@@ -8,7 +8,9 @@ Display of Dubai Landmarks
 
 ### Learn the history of Dubai's Landmarks
 
-You can see a wide variety of Dubai's landamrks like Burj Khalifa, Burj Al Arab Jumeirah, Palm Jumeirah. Choose the landmark and learn its history! 
+You can see a wide variety of Dubai's landamarks like Burj Khalifa, Burj Al Arab Jumeirah, Palm Jumeirah. 
+Choose a landmark and learn its history! 
+
 The project is still under construction.
 
 ## Getting Started
