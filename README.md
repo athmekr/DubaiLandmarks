@@ -1,9 +1,11 @@
 # Dubai Landmarks
 
 ![Build Version](https://img.shields.io/badge/Build%20Version-v1.0alpha-red.svg?style=for-the-badge)
-![Node Version](https://img.shields.io/badge/node.js-v12.18.2-339933?style=for-the-badge&logo=node.js)
-![Angular Version](https://img.shields.io/badge/angular-v11.2.1-61DAF8?style=for-the-badge&logo=angular)
 
+![Mongo Version](https://img.shields.io/badge/mongodb-v4.4.4-61DAF8?style=for-the-badge&logo=mongodb)
+![Express Version](https://img.shields.io/badge/express-v4.17.1-61DAF8?style=for-the-badge&logo=express)
+![Angular Version](https://img.shields.io/badge/angular-v11.2.1-61DAF8?style=for-the-badge&logo=angular)
+![Node Version](https://img.shields.io/badge/node.js-v12.18.2-339933?style=for-the-badge&logo=node.js)
 
 ### Learn the history of Dubai's Landmarks
 
