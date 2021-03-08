@@ -1,5 +1,4 @@
-# DubaiLandmarks
-Display of Dubai Landmarks
+# Dubai Landmarks
 
 ![Build Version](https://img.shields.io/badge/Build%20Version-v1.0alpha-red.svg?style=for-the-badge)
 ![Node Version](https://img.shields.io/badge/node.js-v12.18.2-339933?style=for-the-badge&logo=node.js)
